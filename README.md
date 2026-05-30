@@ -1,6 +1,6 @@
 # Hi there! I'm Javohir Hayitmirzayev 👋
 
-### 👨‍💻 Software Engineer & Project Manager | Full-Stack & Mobile Developer
+### 👨‍💻 Software Engineer & Project Manager | Full-Stack Developer
 
 [cite_start]I am a Software Engineer specializing in building scalable, high-performance applications with a focus on both technical excellence and strategic project management[cite: 4]. [cite_start]I have a proven record of solving complex problems, from optimizing backend data processing to architecting responsive mobile and kiosk interfaces[cite: 6].
 
