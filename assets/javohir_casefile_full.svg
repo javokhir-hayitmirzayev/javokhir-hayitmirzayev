@@ -1,0 +1,217 @@
+<svg width="850" height="1800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="850" height="1800" fill="#f4e4bc" />
+
+  <!-- Top Secret Stamp -->
+  <g transform="rotate(-15, 650, 120)" opacity="0.15">
+    <rect x="550" y="80" width="200" height="80" fill="none" stroke="#8B0000" stroke-width="4" rx="5" />
+    <text x="650" y="130" font-family="Arial Black, sans-serif" font-size="28" fill="#8B0000" text-anchor="middle" font-weight="bold">TOP SECRET</text>
+  </g>
+
+  <g font-family="Courier New, monospace" font-size="11" fill="#2d2d2d">
+
+    <!-- Header -->
+    <text x="30" y="30" font-size="22" font-weight="bold">CASE FILE #0609: JAVOHIR HAYITMIRZAYEV</text>
+    <text x="30" y="45" font-size="10" font-style="italic">CLASSIFICATION: FULLSTACK ENGINEER &amp; TECHNICAL LEAD | CLEARANCE: PRODUCTION-READY</text>
+    <rect x="30" y="52" width="790" height="2" fill="#2d2d2d" />
+
+    <!-- Profile Photo Placeholder & Contact -->
+    <rect x="30" y="65" width="140" height="170" fill="#dcdcdc" stroke="#333" stroke-width="2" />
+    <text x="100" y="155" text-anchor="middle" font-size="12" font-weight="bold">[MUGSHOT]</text>
+    <text x="100" y="170" text-anchor="middle" font-size="9">PHOTO UNAVAILABLE</text>
+
+    <!-- Subject Details Box -->
+    <rect x="185" y="65" width="635" height="170" fill="none" stroke="#333" stroke-width="1" />
+    <text x="195" y="82" font-weight="bold" font-size="12">SUBJECT PROFILE:</text>
+    <text x="195" y="98">Name:          Javohir Hayitmirzayev</text>
+    <text x="195" y="112">Location:      Tashkent, Uzbekistan</text>
+    <text x="195" y="126">Phone:         +998 91 293 0626</text>
+    <text x="195" y="140">Email:         uchihajavohir0609@gmail.com</text>
+    <text x="195" y="154">LinkedIn:      linkedin.com/in/javohir-hayitmirzayev</text>
+    <text x="195" y="168">GitHub:        github.com/javohir0609</text>
+    <text x="195" y="182">Status:        ACTIVE — Technical Lead &amp; Fullstack Engineer</text>
+    <text x="195" y="196">Known Aliases: "Backend Architect", "Incident Responder", "POS Builder"</text>
+    <text x="195" y="210">Threat Level:  HIGH — Owns production systems across restaurant-tech &amp; logistics</text>
+    <text x="195" y="224">Summary:       Fullstack Engineer &amp; Technical Lead who owns backend architecture,</text>
+    <text x="195" y="236">               product direction, and team execution. Built multi-tenant POS for cafes/</text>
+    <text x="195" y="248">               restaurants; engineered dispatch scheduler for 1,500+ drivers, 100+ daily</text>
+    <text x="195" y="260">               loads across 10+ logistics companies. Core: Go, Python/Django, PostgreSQL,</text>
+    <text x="195" y="272">               React/TypeScript. Strong in system design, code review, incident response.</text>
+
+    <!-- Divider -->
+    <rect x="30" y="250" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+
+    <!-- EXPERIENCE LOG -->
+    <text x="30" y="270" font-size="16" font-weight="bold" text-decoration="underline">EXPERIENCE LOG — FIELD OPERATIONS</text>
+
+    <!-- Mary AI -->
+    <rect x="30" y="280" width="790" height="145" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="40" y="295" font-weight="bold" font-size="11">CASE #1: Mary AI (Restaurant Management Platform) | Tashkent, Uzbekistan | Feb 2026–Present</text>
+    <text x="40" y="308" font-weight="bold" font-size="10">Role: Technical Lead &amp; Full-Stack Developer</text>
+    <text x="55" y="322">• Lead backend architecture and technical direction for restaurant management platform, owning</text>
+    <text x="55" y="334">  system design decisions and reviewing engineering work across the team.</text>
+    <text x="55" y="346">• Built multi-tenant POS (point-of-sale) system enabling multiple cafes/restaurants to run independently</text>
+    <text x="55" y="358">  on single platform: order processing, menu/catalog management, checkout.</text>
+    <text x="55" y="370">• Designed &amp; built Employee CRM salary management system in Go/PostgreSQL: multiple payment types,</text>
+    <text x="55" y="382">  salary models, penalties, advances, leave tracking.</text>
+    <text x="55" y="394">• Diagnosed &amp; fixed inventory management defects involving anchor-based stock calculation logic.</text>
+    <text x="55" y="406">• Built &amp; iterated admin panel UI in React, TypeScript, MUI; established consistent design system.</text>
+    <text x="55" y="418">• Diagnosed &amp; resolved production outage affecting API availability — traced to infrastructure</text>
+    <text x="55" y="430">  misconfiguration; restored service.</text>
+
+    <!-- Numeo -->
+    <rect x="30" y="435" width="790" height="160" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="40" y="450" font-weight="bold" font-size="11">CASE #2: Numeo (Logistics Platform) | Namangan, Uzbekistan | Jun 2025–Present</text>
+    <text x="40" y="463" font-weight="bold" font-size="10">Role: Software Engineer</text>
+    <text x="55" y="477">• Support 10+ active logistics companies, handling 50–100 daily loads for mid-sized customers.</text>
+    <text x="55" y="489">• Optimized ETA calculation for 100 loads from 30s to 12s, improving UX and system efficiency.</text>
+    <text x="55" y="501">• Improved Ongoing Loads table to handle 200+ loads (from 50) using virtualization and better data flow.</text>
+    <text x="55" y="513">• Built virtualized drivers &amp; trucks lists, improving UI responsiveness for large datasets.</text>
+    <text x="55" y="525">• Owned end-to-end development of high-performance Scheduler application managing 1.5k+ drivers</text>
+    <text x="55" y="537">  and 100+ daily loads.</text>
+    <text x="55" y="549">• Engineered drag-and-drop assignment, intelligent truck suggestions, advanced filtering — improving</text>
+    <text x="55" y="561">  dispatcher efficiency.</text>
+    <text x="55" y="573">• Continuously worked with legacy code, optimizing and refactoring core modules for performance.</text>
+    <text x="55" y="585">• Fixed bugs and wrote unit tests across frontend and backend; worked directly with customers to gather</text>
+    <text x="55" y="597">  feedback and shape the product.</text>
+
+    <!-- Felix its -->
+    <rect x="30" y="605" width="790" height="65" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="40" y="620" font-weight="bold" font-size="11">CASE #3: Felix its | Tashkent, Uzbekistan | Jan 2025–Mar 2025</text>
+    <text x="40" y="633" font-weight="bold" font-size="10">Role: Intern Python Developer</text>
+    <text x="55" y="647">• Built APIs with Django REST Framework; integrated Redis and Celery for background task processing.</text>
+    <text x="55" y="659">• Implemented unit and API tests using Pytest.</text>
+    <text x="55" y="671">• Contributed to CI/CD pipelines for deployment automation.</text>
+
+    <!-- Fazo Software -->
+    <rect x="30" y="680" width="790" height="65" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="40" y="695" font-weight="bold" font-size="11">CASE #4: Fazo Software | Namangan, Uzbekistan | Nov 2023–Feb 2024</text>
+    <text x="40" y="708" font-weight="bold" font-size="10">Role: Intern Python Developer</text>
+    <text x="55" y="722">• Developed and deployed REST APIs for financial tracking system using Django REST Framework.</text>
+    <text x="55" y="734">• Containerized applications with Docker and Docker Compose.</text>
+    <text x="55" y="746">• Collaborated with stakeholders to define requirements and deliver features.</text>
+
+    <!-- Divider -->
+    <rect x="30" y="760" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+
+    <!-- TECHNICAL ARSENAL -->
+    <text x="30" y="780" font-size="16" font-weight="bold" text-decoration="underline">TECHNICAL ARSENAL — CONFIRMED CAPABILITIES</text>
+
+    <rect x="30" y="790" width="385" height="140" fill="none" stroke="#333" stroke-width="1" />
+    <text x="40" y="805" font-weight="bold" font-size="11">[WEAPONS] LANGUAGES:</text>
+    <text x="55" y="820">• Python (Primary)</text>
+    <text x="55" y="833">• TypeScript (Frontend Specialist)</text>
+    <text x="55" y="846">• JavaScript</text>
+    <text x="55" y="859">• Go (In Progress — Active Training)</text>
+
+    <text x="40" y="875" font-weight="bold" font-size="11">[BACKEND] SYSTEMS:</text>
+    <text x="55" y="890">• Go, Django, Django REST Framework (DRF)</text>
+    <text x="55" y="903">• Node.js, Express.js</text>
+    <text x="55" y="916">• RabbitMQ, WebSockets</text>
+
+    <rect x="435" y="790" width="385" height="140" fill="none" stroke="#333" stroke-width="1" />
+    <text x="445" y="805" font-weight="bold" font-size="11">[FRONTEND] INTERFACE SYSTEMS:</text>
+    <text x="460" y="820">• React, TypeScript</text>
+    <text x="460" y="833">• Ant Design, MUI (Material-UI)</text>
+    <text x="460" y="846">• Axios, Virtuoso (Virtualization)</text>
+
+    <text x="445" y="875" font-weight="bold" font-size="11">[DATABASE] STORAGE:</text>
+    <text x="460" y="890">• PostgreSQL (Primary)</text>
+    <text x="460" y="903">• MySQL, SQLite</text>
+    <text x="460" y="916">• Redis (Caching &amp; Background Tasks)</text>
+
+    <rect x="30" y="940" width="385" height="100" fill="none" stroke="#333" stroke-width="1" />
+    <text x="40" y="955" font-weight="bold" font-size="11">[TESTING] QUALITY ASSURANCE:</text>
+    <text x="55" y="970">• Pytest (Python Unit &amp; API Testing)</text>
+    <text x="55" y="983">• Jest (JavaScript/TypeScript Testing)</text>
+
+    <text x="40" y="999" font-weight="bold" font-size="11">[DEVOPS] INFRASTRUCTURE:</text>
+    <text x="55" y="1014">• Docker, Docker Compose</text>
+    <text x="55" y="1027">• CI/CD (GitHub Actions)</text>
+    <text x="55" y="1040">• Nginx, Git</text>
+
+    <rect x="435" y="940" width="385" height="100" fill="none" stroke="#333" stroke-width="1" />
+    <text x="445" y="955" font-weight="bold" font-size="11">[TOOLS] FIELD EQUIPMENT:</text>
+    <text x="460" y="970">• Git, Postman</text>
+    <text x="460" y="983">• Claude, Google AI Studio</text>
+    <text x="460" y="996">• Windsurf, Cursor</text>
+
+    <text x="445" y="1012" font-weight="bold" font-size="11">[CONCEPTS] TACTICAL KNOWLEDGE:</text>
+    <text x="460" y="1027">• OOP, Data Structures</text>
+    <text x="460" y="1040">• Backend Architecture, System Design</text>
+
+    <!-- Divider -->
+    <rect x="30" y="1055" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+
+    <!-- LEADERSHIP & SOFT SKILLS -->
+    <text x="30" y="1075" font-size="16" font-weight="bold" text-decoration="underline">OPERATIONAL CAPABILITIES — LEADERSHIP &amp; SOFT SKILLS</text>
+
+    <rect x="30" y="1085" width="385" height="110" fill="none" stroke="#333" stroke-width="1" />
+    <text x="40" y="1100" font-weight="bold" font-size="11">[LEADERSHIP] COMMAND STRUCTURE:</text>
+    <text x="55" y="1115">• Technical leadership &amp; architecture ownership</text>
+    <text x="55" y="1128">• Code review &amp; quality enforcement</text>
+    <text x="55" y="1141">• Production incident response &amp; recovery</text>
+    <text x="55" y="1154">• System design &amp; product direction</text>
+    <text x="55" y="1167">• Team execution &amp; cross-functional coordination</text>
+
+    <rect x="435" y="1085" width="385" height="110" fill="none" stroke="#333" stroke-width="1" />
+    <text x="445" y="1100" font-weight="bold" font-size="11">[SOFT SKILLS] OPERATIONAL TRAITS:</text>
+    <text x="460" y="1115">• Problem-solving under pressure</text>
+    <text x="460" y="1128">• Strong communication &amp; team collaboration</text>
+    <text x="460" y="1141">• Customer-focused product development</text>
+    <text x="460" y="1154">• Ownership mindset &amp; accountability</text>
+    <text x="460" y="1167">• Fast learning &amp; adaptability</text>
+
+    <!-- Divider -->
+    <rect x="30" y="1205" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+
+    <!-- LANGUAGES SPOKEN -->
+    <text x="30" y="1225" font-size="16" font-weight="bold" text-decoration="underline">LINGUISTIC CAPABILITIES — COMMUNICATION PROTOCOLS</text>
+
+    <rect x="30" y="1235" width="250" height="55" fill="none" stroke="#333" stroke-width="1" />
+    <text x="40" y="1250" font-weight="bold" font-size="11">UZBEK (NATIVE):</text>
+    <text x="55" y="1265">• Fluent — Primary operational language</text>
+    <text x="55" y="1278">• Proficiency: ██████████ 100%</text>
+
+    <rect x="300" y="1235" width="250" height="55" fill="none" stroke="#333" stroke-width="1" />
+    <text x="310" y="1250" font-weight="bold" font-size="11">ENGLISH (ADVANCED):</text>
+    <text x="325" y="1265">• Professional fluency — Technical docs,</text>
+    <text x="325" y="1278">  client communication, code reviews</text>
+    <text x="325" y="1291">• Proficiency: ████████░░ 80%</text>
+
+    <rect x="570" y="1235" width="250" height="55" fill="none" stroke="#333" stroke-width="1" />
+    <text x="580" y="1250" font-weight="bold" font-size="11">RUSSIAN (BEGINNER):</text>
+    <text x="595" y="1265">• Basic comprehension &amp; communication</text>
+    <text x="595" y="1278">• Proficiency: ███░░░░░░░ 30%</text>
+
+    <!-- Divider -->
+    <rect x="30" y="1305" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+
+    <!-- NOTABLE ACHIEVEMENTS -->
+    <text x="30" y="1325" font-size="16" font-weight="bold" text-decoration="underline">NOTABLE FIELD OPERATIONS — HIGH-IMPACT MISSIONS</text>
+
+    <rect x="30" y="1335" width="790" height="120" fill="none" stroke="#8B0000" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="40" y="1350" font-weight="bold" font-size="11" fill="#8B0000">[CRITICAL] MISSION: Multi-Tenant POS Architecture (Mary AI)</text>
+    <text x="55" y="1365">• Deployed multi-tenant POS serving multiple independent cafes/restaurants on single platform.</text>
+    <text x="55" y="1378">• Handled order processing, menu/catalog management, checkout flows.</text>
+    <text x="55" y="1391">• Built Employee CRM salary system: payment types, salary models, penalties, advances, leave tracking.</text>
+
+    <text x="40" y="1408" font-weight="bold" font-size="11" fill="#8B0000">[CRITICAL] MISSION: High-Performance Logistics Scheduler (Numeo)</text>
+    <text x="55" y="1423">• Scheduler managing 1,500+ drivers and 100+ daily loads across 10+ logistics companies.</text>
+    <text x="55" y="1436">• Drag-and-drop assignment, intelligent truck suggestions, advanced filtering.</text>
+    <text x="55" y="1449">• Optimized ETA from 30s to 12s (60% improvement); scaled table from 50 to 200+ loads via virtualization.</text>
+
+    <!-- Footer -->
+    <rect x="30" y="1470" width="790" height="2" fill="#2d2d2d" />
+    <text x="30" y="1490" font-size="10" font-style="italic">CASE FILE COMPILED: 2026-07-19 | STATUS: ACTIVE — SEEKING NEW OPERATIONS</text>
+    <text x="30" y="1505" font-size="10" font-style="italic">CLEARANCE: Fullstack Engineer &amp; Technical Lead | THREAT LEVEL: HIGH (TO BUGS AND DOWNTIME)</text>
+    <text x="30" y="1520" font-size="10" font-style="italic">THIS DOCUMENT IS CLASSIFIED. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</text>
+
+    <!-- Bottom Stamp -->
+    <g transform="rotate(-10, 700, 1560)" opacity="0.2">
+      <rect x="620" y="1530" width="160" height="60" fill="none" stroke="#8B0000" stroke-width="3" rx="3" />
+      <text x="700" y="1565" font-family="Arial Black, sans-serif" font-size="20" fill="#8B0000" text-anchor="middle" font-weight="bold">APPROVED</text>
+    </g>
+
+  </g>
+</svg>

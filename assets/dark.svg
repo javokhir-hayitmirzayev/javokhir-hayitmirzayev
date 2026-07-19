@@ -1,0 +1,50 @@
+<svg width="850" height="1400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="850" height="1400" fill="#f4e4bc" />
+  <g font-family="Courier New, monospace" font-size="13" fill="#2d2d2d">
+    <!-- Header -->
+    <text x="30" y="40" font-size="24" font-weight="bold">CASE FILE #0609: JAVOHIR HAYITMIRZAYEV</text>
+    <rect x="30" y="50" width="790" height="2" fill="#2d2d2d" />
+    
+    <!-- Profile & Summary -->
+    <rect x="30" y="70" width="160" height="190" fill="#dcdcdc" stroke="#333" />
+    <text x="50" y="160">PHOTO</text>
+    <text x="210" y="90" font-weight="bold">SUMMARY:</text>
+    <text x="210" y="110" width="600" style="word-wrap:break-word">Fullstack Engineer &amp; Technical Lead. Owns backend architecture, product direction,</text>
+    <text x="210" y="125">and team execution. Deep expertise in restaurant-tech and logistics.</text>
+    <text x="210" y="150">Email: uchihajavohir0609@gmail.com | Phone: +998 91 293 0626</text>
+
+    <!-- Experience Log -->
+    <text x="30" y="290" font-size="18" font-weight="bold" text-decoration="underline">EXPERIENCE LOG</text>
+    
+    <text x="30" y="320" font-weight="bold">Mary AI (Tech Lead) | Feb 2026-Present</text>
+    <text x="45" y="340">- Multi-tenant POS architecture; CRM salary management (Go/PostgreSQL).</text>
+    <text x="45" y="360">- Diagnosed inventory defects; fixed production API availability outage.</text>
+    <text x="45" y="380">- Admin panel UI in React/TypeScript/MUI.</text>
+
+    <text x="30" y="420" font-weight="bold">Numeo (Software Engineer) | Jun 2025-Present</text>
+    <text x="45" y="440">- High-perf Scheduler (1.5k+ drivers, 100+ daily loads).</text>
+    <text x="45" y="460">- Optimized ETA calculation (30s to 12s); improved list virtualization.</text>
+    <text x="45" y="480">- Refactored core modules; fixed bugs via unit testing.</text>
+
+    <text x="30" y="520" font-weight="bold">Felix its (Intern) | Jan 2025-Mar 2025</text>
+    <text x="45" y="540">- DRF API dev; integrated Redis/Celery; implemented Pytest.</text>
+
+    <text x="30" y="580" font-weight="bold">Fazo Software (Intern) | Nov 2023-Feb 2024</text>
+    <text x="45" y="600">- REST APIs for financial tracking; Docker containerization.</text>
+
+    <!-- Skills Section -->
+    <text x="30" y="660" font-size="18" font-weight="bold" text-decoration="underline">TECHNICAL ARSENAL</text>
+    <text x="30" y="690">Languages : Python, TypeScript, JavaScript, Go</text>
+    <text x="30" y="710">Backend   : Django/DRF, Node.js, Express, RabbitMQ, WebSockets</text>
+    <text x="30" y="730">Frontend  : React, Ant Design, MUI, Axios, Virtuoso</text>
+    <text x="30" y="750">Databases : PostgreSQL, MySQL, SQLite, Redis</text>
+    <text x="30" y="770">DevOps    : Docker, CI/CD (GitHub Actions), Nginx</text>
+    <text x="30" y="790">Tools     : Git, Postman, Claude, Windsurf, Cursor</text>
+    
+    <!-- Footer Details -->
+    <text x="30" y="850" font-weight="bold" text-decoration="underline">CORE COMPETENCIES &amp; LANGUAGES</text>
+    <text x="30" y="880">- Leadership: Architecture, code reviews, incident response.</text>
+    <text x="30" y="900">- Soft Skills: Problem-solving, customer-focused, ownership mindset.</text>
+    <text x="30" y="920">- Languages : Uzbek (Native), English (Advanced), Russian (Beginner).</text>
+  </g>
+</svg>
