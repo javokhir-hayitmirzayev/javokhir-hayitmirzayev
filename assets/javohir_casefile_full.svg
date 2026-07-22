@@ -1,217 +1,337 @@
-<svg width="850" height="1800" xmlns="http://www.w3.org/2000/svg">
+<svg width="850" height="1640" viewBox="0 0 850 1640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="paperTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+      <feComponentTransfer in="mono">
+        <feFuncA type="linear" slope="0.4"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
   <!-- Background -->
-  <rect width="850" height="1800" fill="#f4e4bc" />
+  <rect width="850" height="1640" fill="#F5E6C5"/>
+  <!-- Paper Texture -->
+  <rect width="850" height="1640" filter="url(#paperTexture)" opacity="0.03" style="pointer-events:none"/>
 
   <!-- Top Secret Stamp -->
-  <g transform="rotate(-15, 650, 120)" opacity="0.15">
-    <rect x="550" y="80" width="200" height="80" fill="none" stroke="#8B0000" stroke-width="4" rx="5" />
-    <text x="650" y="130" font-family="Arial Black, sans-serif" font-size="28" fill="#8B0000" text-anchor="middle" font-weight="bold">TOP SECRET</text>
+  <g transform="rotate(-18 680 105)" opacity="0.34">
+    <rect x="580" y="66" width="200" height="78" fill="none" stroke="#A14A3B" stroke-width="4" rx="4"/>
+    <text x="680" y="114" font-family="Arial Black, Impact, sans-serif" font-size="26" fill="#A14A3B" text-anchor="middle" font-weight="bold">TOP SECRET</text>
   </g>
 
-  <g font-family="Courier New, monospace" font-size="11" fill="#2d2d2d">
+  <g font-family="Courier New, Courier, monospace" font-size="12" fill="#2B2B2B">
 
-    <!-- Header -->
-    <text x="30" y="30" font-size="22" font-weight="bold">CASE FILE #0609: JAVOHIR HAYITMIRZAYEV</text>
-    <text x="30" y="45" font-size="10" font-style="italic">CLASSIFICATION: FULLSTACK ENGINEER &amp; TECHNICAL LEAD | CLEARANCE: PRODUCTION-READY</text>
-    <rect x="30" y="52" width="790" height="2" fill="#2d2d2d" />
+    <!-- ========== HEADER ========== -->
+    <text x="30" y="26" font-size="15" font-weight="bold" fill="#3A3228">CASE FILE #0609</text>
+    <text x="30" y="64" font-size="32" font-weight="bold">JAVOHIR HAYITMIRZAYEV</text>
+    <text x="30" y="92" font-size="12" font-weight="bold" font-style="italic" fill="#3A3228">CLASSIFICATION:</text>
+    <text x="30" y="110" font-size="12" font-style="italic">FULLSTACK ENGINEER  •  TECHNICAL LEAD  •  PRODUCTION READY</text>
+    <rect x="30" y="124" width="790" height="3" fill="#3A3228"/>
 
-    <!-- Profile Photo Placeholder & Contact -->
-    <rect x="30" y="65" width="140" height="170" fill="#dcdcdc" stroke="#333" stroke-width="2" />
-    <text x="100" y="155" text-anchor="middle" font-size="12" font-weight="bold">[MUGSHOT]</text>
-    <text x="100" y="170" text-anchor="middle" font-size="9">PHOTO UNAVAILABLE</text>
+    <!-- ========== SUBJECT PROFILE ========== -->
+    <!-- Mugshot -->
+    <rect x="30" y="144" width="140" height="200" fill="#D4CBB8" stroke="#3A3228" stroke-width="1.5"/>
+    <ellipse cx="100" cy="204" rx="34" ry="40" fill="#A89F8C"/>
+    <ellipse cx="100" cy="282" rx="46" ry="52" fill="#A89F8C"/>
+    <!-- Fingerprint watermark -->
+    <g opacity="0.3" fill="none" stroke="#3A3228" transform="translate(100 244)">
+      <ellipse cx="0" cy="0" rx="36" ry="44" stroke-width="1.2"/>
+      <ellipse cx="0" cy="2" rx="26" ry="32" stroke-width="1"/>
+      <ellipse cx="0" cy="4" rx="16" ry="20" stroke-width="1"/>
+      <ellipse cx="0" cy="6" rx="7" ry="9" stroke-width="1"/>
+      <path d="M-28,-8 Q-36,12 -26,34" stroke-width="1"/>
+      <path d="M28,-8 Q36,12 26,34" stroke-width="1"/>
+      <path d="M-20,-18 Q-28,2 -18,30" stroke-width="0.9"/>
+      <path d="M20,-18 Q28,2 18,30" stroke-width="0.9"/>
+    </g>
+    <rect x="44" y="256" width="112" height="15" fill="#F5E6C5" opacity="0.88"/>
+    <text x="100" y="267" text-anchor="middle" font-size="10" font-weight="bold" fill="#5A5348">PHOTO REDACTED</text>
 
-    <!-- Subject Details Box -->
-    <rect x="185" y="65" width="635" height="170" fill="none" stroke="#333" stroke-width="1" />
-    <text x="195" y="82" font-weight="bold" font-size="12">SUBJECT PROFILE:</text>
-    <text x="195" y="98">Name:          Javohir Hayitmirzayev</text>
-    <text x="195" y="112">Location:      Tashkent, Uzbekistan</text>
-    <text x="195" y="126">Phone:         +998 91 293 0626</text>
-    <text x="195" y="140">Email:         uchihajavohir0609@gmail.com</text>
-    <text x="195" y="154">LinkedIn:      linkedin.com/in/javohir-hayitmirzayev</text>
-    <text x="195" y="168">GitHub:        github.com/javohir0609</text>
-    <text x="195" y="182">Status:        ACTIVE — Technical Lead &amp; Fullstack Engineer</text>
-    <text x="195" y="196">Known Aliases: "Backend Architect", "Incident Responder", "POS Builder"</text>
-    <text x="195" y="210">Threat Level:  HIGH — Owns production systems across restaurant-tech &amp; logistics</text>
-    <text x="195" y="224">Summary:       Fullstack Engineer &amp; Technical Lead who owns backend architecture,</text>
-    <text x="195" y="236">               product direction, and team execution. Built multi-tenant POS for cafes/</text>
-    <text x="195" y="248">               restaurants; engineered dispatch scheduler for 1,500+ drivers, 100+ daily</text>
-    <text x="195" y="260">               loads across 10+ logistics companies. Core: Go, Python/Django, PostgreSQL,</text>
-    <text x="195" y="272">               React/TypeScript. Strong in system design, code review, incident response.</text>
+    <!-- Subject Details -->
+    <rect x="186" y="144" width="634" height="200" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="202" y="166" font-weight="bold" font-size="13">SUBJECT PROFILE</text>
 
-    <!-- Divider -->
-    <rect x="30" y="250" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+    <!-- Fixed-width label column: labels @ 202, values @ 292 -->
+    <text x="202" y="188" font-weight="bold">Name</text>
+    <text x="292" y="188">Javohir Hayitmirzayev</text>
+    <text x="202" y="206" font-weight="bold">Location</text>
+    <text x="292" y="206">Tashkent, Uzbekistan</text>
+    <text x="202" y="224" font-weight="bold">Phone</text>
+    <text x="292" y="224">+998 91 293 0626</text>
+    <text x="202" y="242" font-weight="bold">Email</text>
+    <text x="292" y="242">uchihajavohir0609@gmail.com</text>
+    <text x="202" y="260" font-weight="bold">LinkedIn</text>
+    <text x="292" y="260">linkedin.com/in/javohir-hayitmirzayev</text>
+    <text x="202" y="278" font-weight="bold">GitHub</text>
+    <text x="292" y="278">javohir0609</text>
 
-    <!-- EXPERIENCE LOG -->
-    <text x="30" y="270" font-size="16" font-weight="bold" text-decoration="underline">EXPERIENCE LOG — FIELD OPERATIONS</text>
+    <!-- Dossier Badges -->
+    <rect x="202" y="296" width="140" height="22" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="210" y="311" font-size="9" font-weight="bold">STATUS</text>
+    <text x="262" y="311" font-size="9">ACTIVE</text>
 
-    <!-- Mary AI -->
-    <rect x="30" y="280" width="790" height="145" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="40" y="295" font-weight="bold" font-size="11">CASE #1: Mary AI (Restaurant Management Platform) | Tashkent, Uzbekistan | Feb 2026–Present</text>
-    <text x="40" y="308" font-weight="bold" font-size="10">Role: Technical Lead &amp; Full-Stack Developer</text>
-    <text x="55" y="322">• Lead backend architecture and technical direction for restaurant management platform, owning</text>
-    <text x="55" y="334">  system design decisions and reviewing engineering work across the team.</text>
-    <text x="55" y="346">• Built multi-tenant POS (point-of-sale) system enabling multiple cafes/restaurants to run independently</text>
-    <text x="55" y="358">  on single platform: order processing, menu/catalog management, checkout.</text>
-    <text x="55" y="370">• Designed &amp; built Employee CRM salary management system in Go/PostgreSQL: multiple payment types,</text>
-    <text x="55" y="382">  salary models, penalties, advances, leave tracking.</text>
-    <text x="55" y="394">• Diagnosed &amp; fixed inventory management defects involving anchor-based stock calculation logic.</text>
-    <text x="55" y="406">• Built &amp; iterated admin panel UI in React, TypeScript, MUI; established consistent design system.</text>
-    <text x="55" y="418">• Diagnosed &amp; resolved production outage affecting API availability — traced to infrastructure</text>
-    <text x="55" y="430">  misconfiguration; restored service.</text>
+    <rect x="352" y="296" width="140" height="22" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="360" y="311" font-size="9" font-weight="bold">ROLE</text>
+    <text x="398" y="311" font-size="9">TECHNICAL LEAD</text>
 
-    <!-- Numeo -->
-    <rect x="30" y="435" width="790" height="160" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="40" y="450" font-weight="bold" font-size="11">CASE #2: Numeo (Logistics Platform) | Namangan, Uzbekistan | Jun 2025–Present</text>
-    <text x="40" y="463" font-weight="bold" font-size="10">Role: Software Engineer</text>
-    <text x="55" y="477">• Support 10+ active logistics companies, handling 50–100 daily loads for mid-sized customers.</text>
-    <text x="55" y="489">• Optimized ETA calculation for 100 loads from 30s to 12s, improving UX and system efficiency.</text>
-    <text x="55" y="501">• Improved Ongoing Loads table to handle 200+ loads (from 50) using virtualization and better data flow.</text>
-    <text x="55" y="513">• Built virtualized drivers &amp; trucks lists, improving UI responsiveness for large datasets.</text>
-    <text x="55" y="525">• Owned end-to-end development of high-performance Scheduler application managing 1.5k+ drivers</text>
-    <text x="55" y="537">  and 100+ daily loads.</text>
-    <text x="55" y="549">• Engineered drag-and-drop assignment, intelligent truck suggestions, advanced filtering — improving</text>
-    <text x="55" y="561">  dispatcher efficiency.</text>
-    <text x="55" y="573">• Continuously worked with legacy code, optimizing and refactoring core modules for performance.</text>
-    <text x="55" y="585">• Fixed bugs and wrote unit tests across frontend and backend; worked directly with customers to gather</text>
-    <text x="55" y="597">  feedback and shape the product.</text>
+    <rect x="502" y="296" width="150" height="22" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="510" y="311" font-size="9" font-weight="bold">CLEARANCE</text>
+    <text x="578" y="311" font-size="9">PRODUCTION READY</text>
 
-    <!-- Felix its -->
-    <rect x="30" y="605" width="790" height="65" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="40" y="620" font-weight="bold" font-size="11">CASE #3: Felix its | Tashkent, Uzbekistan | Jan 2025–Mar 2025</text>
-    <text x="40" y="633" font-weight="bold" font-size="10">Role: Intern Python Developer</text>
-    <text x="55" y="647">• Built APIs with Django REST Framework; integrated Redis and Celery for background task processing.</text>
-    <text x="55" y="659">• Implemented unit and API tests using Pytest.</text>
-    <text x="55" y="671">• Contributed to CI/CD pipelines for deployment automation.</text>
+    <rect x="662" y="296" width="140" height="22" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="670" y="311" font-size="9" font-weight="bold">THREAT</text>
+    <text x="722" y="311" font-size="9">HIGH</text>
 
-    <!-- Fazo Software -->
-    <rect x="30" y="680" width="790" height="65" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="40" y="695" font-weight="bold" font-size="11">CASE #4: Fazo Software | Namangan, Uzbekistan | Nov 2023–Feb 2024</text>
-    <text x="40" y="708" font-weight="bold" font-size="10">Role: Intern Python Developer</text>
-    <text x="55" y="722">• Developed and deployed REST APIs for financial tracking system using Django REST Framework.</text>
-    <text x="55" y="734">• Containerized applications with Docker and Docker Compose.</text>
-    <text x="55" y="746">• Collaborated with stakeholders to define requirements and deliver features.</text>
+    <!-- Summary -->
+    <rect x="30" y="360" width="790" height="118" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="382" font-weight="bold" font-size="13">SUMMARY</text>
+    <text x="46" y="404">Full-stack engineer specializing in backend architecture,</text>
+    <text x="46" y="420">multi-tenant SaaS platforms, restaurant POS systems,</text>
+    <text x="46" y="436">and logistics software. Strong background in Python, Django,</text>
+    <text x="46" y="452">PostgreSQL, React, TypeScript, distributed systems,</text>
+    <text x="46" y="468">system design, and technical leadership.</text>
 
-    <!-- Divider -->
-    <rect x="30" y="760" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
+    <!-- ========== GITHUB INTELLIGENCE ========== -->
+    <rect x="30" y="502" width="790" height="2.5" fill="#3A3228"/>
+    <text x="30" y="528" font-size="18" font-weight="bold">GITHUB INTELLIGENCE — DIGITAL FOOTPRINT</text>
+    <rect x="30" y="538" width="790" height="2.5" fill="#3A3228"/>
 
-    <!-- TECHNICAL ARSENAL -->
-    <text x="30" y="780" font-size="16" font-weight="bold" text-decoration="underline">TECHNICAL ARSENAL — CONFIRMED CAPABILITIES</text>
+    <!-- GitHub Stats Container -->
+    <rect x="30" y="554" width="790" height="130" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="576" font-weight="bold" font-size="13">OPERATIONAL METRICS</text>
 
-    <rect x="30" y="790" width="385" height="140" fill="none" stroke="#333" stroke-width="1" />
-    <text x="40" y="805" font-weight="bold" font-size="11">[WEAPONS] LANGUAGES:</text>
-    <text x="55" y="820">• Python (Primary)</text>
-    <text x="55" y="833">• TypeScript (Frontend Specialist)</text>
-    <text x="55" y="846">• JavaScript</text>
-    <text x="55" y="859">• Go (In Progress — Active Training)</text>
+    <!-- Stats Grid - Dynamic values populated by JavaScript -->
+    <g id="github-stats">
+      <!-- Commits -->
+      <rect x="46" y="592" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="56" y="608" font-size="9" font-weight="bold">TOTAL COMMITS</text>
+      <text x="56" y="624" font-size="14" font-weight="bold" id="stat-commits">Loading...</text>
 
-    <text x="40" y="875" font-weight="bold" font-size="11">[BACKEND] SYSTEMS:</text>
-    <text x="55" y="890">• Go, Django, Django REST Framework (DRF)</text>
-    <text x="55" y="903">• Node.js, Express.js</text>
-    <text x="55" y="916">• RabbitMQ, WebSockets</text>
+      <!-- Repositories -->
+      <rect x="236" y="592" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="246" y="608" font-size="9" font-weight="bold">REPOSITORIES</text>
+      <text x="246" y="624" font-size="14" font-weight="bold" id="stat-repos">Loading...</text>
 
-    <rect x="435" y="790" width="385" height="140" fill="none" stroke="#333" stroke-width="1" />
-    <text x="445" y="805" font-weight="bold" font-size="11">[FRONTEND] INTERFACE SYSTEMS:</text>
-    <text x="460" y="820">• React, TypeScript</text>
-    <text x="460" y="833">• Ant Design, MUI (Material-UI)</text>
-    <text x="460" y="846">• Axios, Virtuoso (Virtualization)</text>
+      <!-- Followers -->
+      <rect x="426" y="592" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="436" y="608" font-size="9" font-weight="bold">FOLLOWERS</text>
+      <text x="436" y="624" font-size="14" font-weight="bold" id="stat-followers">Loading...</text>
 
-    <text x="445" y="875" font-weight="bold" font-size="11">[DATABASE] STORAGE:</text>
-    <text x="460" y="890">• PostgreSQL (Primary)</text>
-    <text x="460" y="903">• MySQL, SQLite</text>
-    <text x="460" y="916">• Redis (Caching &amp; Background Tasks)</text>
+      <!-- Following -->
+      <rect x="616" y="592" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="626" y="608" font-size="9" font-weight="bold">FOLLOWING</text>
+      <text x="626" y="624" font-size="14" font-weight="bold" id="stat-following">Loading...</text>
 
-    <rect x="30" y="940" width="385" height="100" fill="none" stroke="#333" stroke-width="1" />
-    <text x="40" y="955" font-weight="bold" font-size="11">[TESTING] QUALITY ASSURANCE:</text>
-    <text x="55" y="970">• Pytest (Python Unit &amp; API Testing)</text>
-    <text x="55" y="983">• Jest (JavaScript/TypeScript Testing)</text>
+      <!-- Stars -->
+      <rect x="46" y="642" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="56" y="658" font-size="9" font-weight="bold">STARS EARNED</text>
+      <text x="56" y="674" font-size="14" font-weight="bold" id="stat-stars">Loading...</text>
 
-    <text x="40" y="999" font-weight="bold" font-size="11">[DEVOPS] INFRASTRUCTURE:</text>
-    <text x="55" y="1014">• Docker, Docker Compose</text>
-    <text x="55" y="1027">• CI/CD (GitHub Actions)</text>
-    <text x="55" y="1040">• Nginx, Git</text>
+      <!-- PRs -->
+      <rect x="236" y="642" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="246" y="658" font-size="9" font-weight="bold">PULL REQUESTS</text>
+      <text x="246" y="674" font-size="14" font-weight="bold" id="stat-prs">Loading...</text>
 
-    <rect x="435" y="940" width="385" height="100" fill="none" stroke="#333" stroke-width="1" />
-    <text x="445" y="955" font-weight="bold" font-size="11">[TOOLS] FIELD EQUIPMENT:</text>
-    <text x="460" y="970">• Git, Postman</text>
-    <text x="460" y="983">• Claude, Google AI Studio</text>
-    <text x="460" y="996">• Windsurf, Cursor</text>
+      <!-- Issues -->
+      <rect x="426" y="642" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="436" y="658" font-size="9" font-weight="bold">ISSUES</text>
+      <text x="436" y="674" font-size="14" font-weight="bold" id="stat-issues">Loading...</text>
 
-    <text x="445" y="1012" font-weight="bold" font-size="11">[CONCEPTS] TACTICAL KNOWLEDGE:</text>
-    <text x="460" y="1027">• OOP, Data Structures</text>
-    <text x="460" y="1040">• Backend Architecture, System Design</text>
-
-    <!-- Divider -->
-    <rect x="30" y="1055" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
-
-    <!-- LEADERSHIP & SOFT SKILLS -->
-    <text x="30" y="1075" font-size="16" font-weight="bold" text-decoration="underline">OPERATIONAL CAPABILITIES — LEADERSHIP &amp; SOFT SKILLS</text>
-
-    <rect x="30" y="1085" width="385" height="110" fill="none" stroke="#333" stroke-width="1" />
-    <text x="40" y="1100" font-weight="bold" font-size="11">[LEADERSHIP] COMMAND STRUCTURE:</text>
-    <text x="55" y="1115">• Technical leadership &amp; architecture ownership</text>
-    <text x="55" y="1128">• Code review &amp; quality enforcement</text>
-    <text x="55" y="1141">• Production incident response &amp; recovery</text>
-    <text x="55" y="1154">• System design &amp; product direction</text>
-    <text x="55" y="1167">• Team execution &amp; cross-functional coordination</text>
-
-    <rect x="435" y="1085" width="385" height="110" fill="none" stroke="#333" stroke-width="1" />
-    <text x="445" y="1100" font-weight="bold" font-size="11">[SOFT SKILLS] OPERATIONAL TRAITS:</text>
-    <text x="460" y="1115">• Problem-solving under pressure</text>
-    <text x="460" y="1128">• Strong communication &amp; team collaboration</text>
-    <text x="460" y="1141">• Customer-focused product development</text>
-    <text x="460" y="1154">• Ownership mindset &amp; accountability</text>
-    <text x="460" y="1167">• Fast learning &amp; adaptability</text>
-
-    <!-- Divider -->
-    <rect x="30" y="1205" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
-
-    <!-- LANGUAGES SPOKEN -->
-    <text x="30" y="1225" font-size="16" font-weight="bold" text-decoration="underline">LINGUISTIC CAPABILITIES — COMMUNICATION PROTOCOLS</text>
-
-    <rect x="30" y="1235" width="250" height="55" fill="none" stroke="#333" stroke-width="1" />
-    <text x="40" y="1250" font-weight="bold" font-size="11">UZBEK (NATIVE):</text>
-    <text x="55" y="1265">• Fluent — Primary operational language</text>
-    <text x="55" y="1278">• Proficiency: ██████████ 100%</text>
-
-    <rect x="300" y="1235" width="250" height="55" fill="none" stroke="#333" stroke-width="1" />
-    <text x="310" y="1250" font-weight="bold" font-size="11">ENGLISH (ADVANCED):</text>
-    <text x="325" y="1265">• Professional fluency — Technical docs,</text>
-    <text x="325" y="1278">  client communication, code reviews</text>
-    <text x="325" y="1291">• Proficiency: ████████░░ 80%</text>
-
-    <rect x="570" y="1235" width="250" height="55" fill="none" stroke="#333" stroke-width="1" />
-    <text x="580" y="1250" font-weight="bold" font-size="11">RUSSIAN (BEGINNER):</text>
-    <text x="595" y="1265">• Basic comprehension &amp; communication</text>
-    <text x="595" y="1278">• Proficiency: ███░░░░░░░ 30%</text>
-
-    <!-- Divider -->
-    <rect x="30" y="1305" width="790" height="1" fill="#2d2d2d" opacity="0.5"/>
-
-    <!-- NOTABLE ACHIEVEMENTS -->
-    <text x="30" y="1325" font-size="16" font-weight="bold" text-decoration="underline">NOTABLE FIELD OPERATIONS — HIGH-IMPACT MISSIONS</text>
-
-    <rect x="30" y="1335" width="790" height="120" fill="none" stroke="#8B0000" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="40" y="1350" font-weight="bold" font-size="11" fill="#8B0000">[CRITICAL] MISSION: Multi-Tenant POS Architecture (Mary AI)</text>
-    <text x="55" y="1365">• Deployed multi-tenant POS serving multiple independent cafes/restaurants on single platform.</text>
-    <text x="55" y="1378">• Handled order processing, menu/catalog management, checkout flows.</text>
-    <text x="55" y="1391">• Built Employee CRM salary system: payment types, salary models, penalties, advances, leave tracking.</text>
-
-    <text x="40" y="1408" font-weight="bold" font-size="11" fill="#8B0000">[CRITICAL] MISSION: High-Performance Logistics Scheduler (Numeo)</text>
-    <text x="55" y="1423">• Scheduler managing 1,500+ drivers and 100+ daily loads across 10+ logistics companies.</text>
-    <text x="55" y="1436">• Drag-and-drop assignment, intelligent truck suggestions, advanced filtering.</text>
-    <text x="55" y="1449">• Optimized ETA from 30s to 12s (60% improvement); scaled table from 50 to 200+ loads via virtualization.</text>
-
-    <!-- Footer -->
-    <rect x="30" y="1470" width="790" height="2" fill="#2d2d2d" />
-    <text x="30" y="1490" font-size="10" font-style="italic">CASE FILE COMPILED: 2026-07-19 | STATUS: ACTIVE — SEEKING NEW OPERATIONS</text>
-    <text x="30" y="1505" font-size="10" font-style="italic">CLEARANCE: Fullstack Engineer &amp; Technical Lead | THREAT LEVEL: HIGH (TO BUGS AND DOWNTIME)</text>
-    <text x="30" y="1520" font-size="10" font-style="italic">THIS DOCUMENT IS CLASSIFIED. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</text>
-
-    <!-- Bottom Stamp -->
-    <g transform="rotate(-10, 700, 1560)" opacity="0.2">
-      <rect x="620" y="1530" width="160" height="60" fill="none" stroke="#8B0000" stroke-width="3" rx="3" />
-      <text x="700" y="1565" font-family="Arial Black, sans-serif" font-size="20" fill="#8B0000" text-anchor="middle" font-weight="bold">APPROVED</text>
+      <!-- Account Age -->
+      <rect x="616" y="642" width="180" height="40" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
+      <text x="626" y="658" font-size="9" font-weight="bold">ACCOUNT AGE</text>
+      <text x="626" y="674" font-size="14" font-weight="bold" id="stat-age">Loading...</text>
     </g>
 
+    <!-- ========== TECHNICAL ARSENAL ========== -->
+    <rect x="30" y="718" width="790" height="2.5" fill="#3A3228"/>
+    <text x="30" y="744" font-size="18" font-weight="bold">TECHNICAL ARSENAL — CONFIRMED CAPABILITIES</text>
+    <rect x="30" y="754" width="790" height="2.5" fill="#3A3228"/>
+
+    <!-- Row 1 -->
+    <rect x="30" y="770" width="385" height="112" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="792" font-weight="bold" font-size="13">LANGUAGES</text>
+    <text x="46" y="812">• Python (Primary)</text>
+    <text x="46" y="830">• TypeScript (Frontend Specialist)</text>
+    <text x="46" y="848">• JavaScript</text>
+    <text x="46" y="866">• Go (Currently Learning)</text>
+
+    <rect x="435" y="770" width="385" height="112" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="451" y="792" font-weight="bold" font-size="13">FRONTEND</text>
+    <text x="451" y="812">• React, TypeScript</text>
+    <text x="451" y="830">• Ant Design, MUI</text>
+    <text x="451" y="848">• Axios, Virtuoso (Virtualization)</text>
+
+    <!-- Row 2 -->
+    <rect x="30" y="898" width="385" height="112" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="920" font-weight="bold" font-size="13">BACKEND</text>
+    <text x="46" y="940">• Django, Django REST Framework (DRF)</text>
+    <text x="46" y="958">• Node.js, Express.js</text>
+    <text x="46" y="976">• RabbitMQ, WebSockets</text>
+    <text x="46" y="994">• Go</text>
+
+    <rect x="435" y="898" width="385" height="112" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="451" y="920" font-weight="bold" font-size="13">DATABASE</text>
+    <text x="451" y="940">• PostgreSQL (Primary)</text>
+    <text x="451" y="958">• MySQL, SQLite</text>
+    <text x="451" y="976">• Redis (Caching &amp; Background Tasks)</text>
+
+    <!-- Row 3 -->
+    <rect x="30" y="1026" width="385" height="132" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="1048" font-weight="bold" font-size="13">TESTING</text>
+    <text x="46" y="1068">• Pytest (Python Unit &amp; API Testing)</text>
+    <text x="46" y="1086">• Jest (JavaScript/TypeScript Testing)</text>
+    <text x="46" y="1110" font-weight="bold" font-size="13">INFRASTRUCTURE</text>
+    <text x="46" y="1130">• Docker, Docker Compose</text>
+    <text x="46" y="1148">• GitHub Actions, Nginx, Git</text>
+
+    <rect x="435" y="1026" width="385" height="132" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="451" y="1048" font-weight="bold" font-size="13">TOOLS</text>
+    <text x="451" y="1068">• Git, Postman</text>
+    <text x="451" y="1086">• Claude, AI Studio</text>
+    <text x="451" y="1104">• Windsurf, Cursor</text>
+    <text x="451" y="1128" font-weight="bold" font-size="13">CONCEPTS</text>
+    <text x="451" y="1148">• OOP, Data Structures</text>
+    <text x="451" y="1166">• Backend Architecture, System Design</text>
+
+    <!-- ========== LEADERSHIP ========== -->
+    <rect x="30" y="1182" width="790" height="2.5" fill="#3A3228"/>
+    <text x="30" y="1208" font-size="18" font-weight="bold">OPERATIONAL CAPABILITIES — LEADERSHIP &amp; SOFT SKILLS</text>
+    <rect x="30" y="1218" width="790" height="2.5" fill="#3A3228"/>
+
+    <rect x="30" y="1234" width="385" height="122" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="1256" font-weight="bold" font-size="13">LEADERSHIP</text>
+    <text x="46" y="1276">• Technical leadership &amp; architecture ownership</text>
+    <text x="46" y="1294">• Code review &amp; quality enforcement</text>
+    <text x="46" y="1312">• Production incident response &amp; recovery</text>
+    <text x="46" y="1330">• System design &amp; product direction</text>
+    <text x="46" y="1348">• Team execution &amp; cross-functional coordination</text>
+
+    <rect x="435" y="1234" width="385" height="122" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="451" y="1256" font-weight="bold" font-size="13">SOFT SKILLS</text>
+    <text x="451" y="1276">• Problem-solving under pressure</text>
+    <text x="451" y="1294">• Strong communication &amp; collaboration</text>
+    <text x="451" y="1312">• Customer-focused product development</text>
+    <text x="451" y="1330">• Ownership mindset &amp; accountability</text>
+    <text x="451" y="1348">• Fast learning &amp; adaptability</text>
+
+    <!-- ========== LANGUAGES ========== -->
+    <rect x="30" y="1380" width="790" height="2.5" fill="#3A3228"/>
+    <text x="30" y="1406" font-size="18" font-weight="bold">LINGUISTIC CAPABILITIES — COMMUNICATION PROTOCOLS</text>
+    <rect x="30" y="1416" width="790" height="2.5" fill="#3A3228"/>
+
+    <!-- Uzbek -->
+    <rect x="30" y="1432" width="250" height="88" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="46" y="1454" font-weight="bold" font-size="13">UZBEK</text>
+    <text x="46" y="1474">Fluent — Primary language</text>
+    <rect x="46" y="1484" width="170" height="8" fill="#3A3228" opacity="0.15"/>
+    <rect x="46" y="1484" width="170" height="8" fill="#3A3228"/>
+    <text x="264" y="1492" font-size="11" text-anchor="end">100%</text>
+    <text x="46" y="1510" font-size="11" fill="#3A3228">Native</text>
+
+    <!-- English -->
+    <rect x="300" y="1432" width="250" height="88" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="316" y="1454" font-weight="bold" font-size="13">ENGLISH</text>
+    <text x="316" y="1474">Professional — Tech &amp; clients</text>
+    <rect x="316" y="1484" width="170" height="8" fill="#3A3228" opacity="0.15"/>
+    <rect x="316" y="1484" width="136" height="8" fill="#3A3228"/>
+    <text x="534" y="1492" font-size="11" text-anchor="end">80%</text>
+    <text x="316" y="1510" font-size="11" fill="#3A3228">Professional</text>
+
+    <!-- Russian -->
+    <rect x="570" y="1432" width="250" height="88" fill="none" stroke="#3A3228" stroke-width="1.5"/>
+    <text x="586" y="1454" font-weight="bold" font-size="13">RUSSIAN</text>
+    <text x="586" y="1474">Basic comprehension</text>
+    <rect x="586" y="1484" width="170" height="8" fill="#3A3228" opacity="0.15"/>
+    <rect x="586" y="1484" width="51" height="8" fill="#3A3228"/>
+    <text x="804" y="1492" font-size="11" text-anchor="end">30%</text>
+    <text x="586" y="1510" font-size="11" fill="#3A3228">Beginner</text>
+
+    <!-- ========== FOOTER ========== -->
+    <rect x="30" y="1540" width="790" height="2" fill="#3A3228" opacity="0.6"/>
+
+    <rect x="30" y="1554" width="120" height="36" fill="none" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="38" y="1568" font-size="9" font-weight="bold">CASE FILE</text>
+    <text x="38" y="1582" font-size="9">2026-07-19</text>
+
+    <rect x="160" y="1554" width="120" height="36" fill="none" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="168" y="1568" font-size="9" font-weight="bold">STATUS</text>
+    <text x="168" y="1582" font-size="9">ACTIVE</text>
+
+    <rect x="290" y="1554" width="130" height="36" fill="none" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="298" y="1568" font-size="9" font-weight="bold">CLEARANCE</text>
+    <text x="298" y="1582" font-size="9">FULLSTACK ENGINEER</text>
+
+    <rect x="430" y="1554" width="110" height="36" fill="none" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="438" y="1568" font-size="9" font-weight="bold">THREAT LEVEL</text>
+    <text x="438" y="1582" font-size="9">HIGH</text>
+
+    <rect x="550" y="1554" width="120" height="36" fill="none" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="558" y="1568" font-size="9" font-weight="bold">DOCUMENT ID</text>
+    <text x="558" y="1582" font-size="9">CF-0609-A</text>
+
+    <rect x="680" y="1554" width="140" height="36" fill="none" stroke="#3A3228" stroke-width="0.75"/>
+    <text x="688" y="1568" font-size="9" font-weight="bold">REVISION</text>
+    <text x="688" y="1582" font-size="9">1.0</text>
+
+    <!-- Decorative metadata -->
+    <text x="30" y="1614" font-size="8" fill="#3A3228">PAGE 1 OF 1</text>
+    <text x="820" y="1614" font-size="8" fill="#3A3228" text-anchor="end">SECURITY LEVEL IV</text>
+    <text x="30" y="1628" font-size="8" fill="#3A3228">ARCHIVE COPY</text>
+    <text x="820" y="1628" font-size="8" fill="#3A3228" text-anchor="end">CONFIDENTIAL</text>
+
   </g>
+
+  <!-- Bottom Stamp -->
+  <g transform="rotate(-10 720 1569)" opacity="0.34">
+    <rect x="640" y="1539" width="160" height="58" fill="none" stroke="#A14A3B" stroke-width="4" rx="3"/>
+    <text x="720" y="1574" font-family="Arial Black, Impact, sans-serif" font-size="20" fill="#A14A3B" text-anchor="middle" font-weight="bold">APPROVED</text>
+  </g>
+
+  <!-- Dynamic GitHub Stats Script -->
+  <script type="text/javascript">
+    <
+![CDATA[
+    (async function()
+ {
+      const username = 'javohir0609';
+      
+      try {
+        // Fetch user profile
+        const userResponse = await fetch(`https://api.github.com/users/${username}`);
+        const userData = await userResponse.json();
+        
+        // Fetch repositories for additional stats
+        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+        const reposData = await reposResponse.json();
+        
+        // Calculate total stars
+        const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+        
+        // Calculate account age
+        const createdAt = new Date(userData.created_at);
+        const now = new Date();
+        const years = Math.floor((now - createdAt) / (365.25 * 24 * 60 * 60 * 1000));
+        const months = Math.floor(((now - createdAt) % (365.25 * 24 * 60 * 60 * 1000)) / (30.44 * 24 * 60 * 60 * 1000));
+        
+        // Update SVG elements
+        document.getElementById('stat-commits').textContent = userData.public_repos > 0 ? 'N/A' : '0';
+        document.getElementById('stat-repos').textContent = userData.public_repos;
+        document.getElementById('stat-followers').textContent = userData.followers;
+        document.getElementById('stat-following').textContent = userData.following;
+        document.getElementById('stat-stars').textContent = totalStars;
+        document.getElementById('stat-prs').textContent = 'N/A';
+        document.getElementById('stat-issues').textContent = 'N/A';
+        document.getElementById('stat-age').textContent = `${years}y ${months}m`;
+        
+      } catch (error) {
+        console.error('Failed to fetch GitHub stats:', error);
+        document.querySelectorAll('[id^="stat-"]').forEach(el => {
+          el.textContent = 'Error';
+        });
+      }
+    })();
+    ]]>
+  </script>
 </svg>

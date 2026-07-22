@@ -1,0 +1,104 @@
+# Living Intelligence Dossier — subject configuration
+# GitHub-fetched fields override empty values; curated lists always merge.
+
+github_username: javokhir-hayitmirzayev
+
+case_file: "0609"
+document_id: CF-0609-A
+revision: "2.0"
+
+subject:
+  display_name: Javohir Hayitmirzayev
+  classification: "FULLSTACK ENGINEER • TECHNICAL LEAD • PRODUCTION READY"
+  status: ACTIVE
+  threat_level: HIGH
+  clearance: "FULLSTACK ENGINEER"
+  location_fallback: "Tashkent, Uzbekistan"
+  phone: "+998 91 293 0626"
+  email: uchihajavohir0609@gmail.com
+  linkedin: linkedin.com/in/javohir-hayitmirzayev
+
+summary:
+  - Full-stack engineer specializing in backend architecture,
+  - multi-tenant SaaS platforms, restaurant POS systems,
+  - and logistics software. Strong background in Python, Django,
+  - PostgreSQL, React, TypeScript, distributed systems,
+  - system design, and technical leadership.
+
+# Manual expertise ratings (0–100). Not inferred from GitHub.
+threat_assessment:
+  - label: Backend Engineering
+    score: 92
+  - label: System Design
+    score: 88
+  - label: Architecture
+    score: 85
+  - label: Frontend
+    score: 72
+  - label: DevOps
+    score: 68
+  - label: Leadership
+    score: 82
+  - label: Problem Solving
+    score: 94
+
+field_notes:
+  known_for:
+    - Backend architecture
+    - Distributed systems
+    - Technical leadership
+    - Production incident response
+    - Restaurant POS systems
+    - Logistics platforms
+    - System design
+    - Code review
+    - Performance optimization
+  current_status: MISSION ACTIVE
+
+# Curated framework lists — always shown; detection may add extras.
+frameworks:
+  backend:
+    - Django
+    - Django REST Framework
+    - FastAPI
+    - Go
+    - Express.js
+    - RabbitMQ
+    - WebSockets
+  frontend:
+    - React
+    - Next.js
+    - Material UI
+    - Ant Design
+    - Axios
+  database:
+    - PostgreSQL
+    - Redis
+    - SQLite
+    - MySQL
+  devops:
+    - Docker
+    - Docker Compose
+    - GitHub Actions
+    - Nginx
+    - Linux
+  tools:
+    - Git
+    - Cursor
+    - Claude
+    - AI Studio
+    - Postman
+
+# Heuristics: filename fragments → framework labels (merged into lists above)
+framework_signals:
+  requirements.txt: [Django, Django REST Framework, FastAPI]
+  pyproject.toml: [Django, FastAPI]
+  package.json: [React, Next.js, Express.js, Axios]
+  go.mod: [Go]
+  docker-compose.yml: [Docker, Docker Compose]
+  Dockerfile: [Docker]
+  ".github/workflows": [GitHub Actions]
+
+high_value_assets_count: 4
+recent_intelligence_count: 8
+language_bar_count: 6
