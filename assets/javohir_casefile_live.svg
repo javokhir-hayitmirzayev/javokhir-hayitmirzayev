@@ -58,7 +58,7 @@
     <text x="202" y="314" font-weight="bold">LinkedIn</text>
     <text x="320" y="314">linkedin.com/in/javohir-hayitmirz…</text>
     <text x="202" y="332" font-weight="bold">Last Seen</text>
-    <text x="320" y="332">6 days ago</text>
+    <text x="320" y="332">7 days ago</text>
 
     <rect x="560" y="180" width="240" height="154" fill="#E9E1CF" stroke="#3A3228" stroke-width="0.75"/>
     <text x="574" y="200" font-size="10" font-weight="bold">IDENTIFICATION</text>
@@ -99,7 +99,7 @@
     <text x="451" y="470" font-weight="bold">Forked Operations</text>
     <text x="795" y="470" text-anchor="end">0</text>
     <text x="451" y="492" font-weight="bold">Latest Deployment</text>
-    <text x="795" y="492" text-anchor="end">6 days ago</text>
+    <text x="795" y="492" text-anchor="end">7 days ago</text>
     <text x="451" y="514" font-weight="bold">Mission Status</text>
     <text x="795" y="514" text-anchor="end">ACTIVE</text>
     <text x="451" y="536" font-weight="bold">Threat Level</text>
@@ -234,7 +234,7 @@
       <text x="46" y="1324" font-weight="bold" font-size="13">javokhir-hayitmirzayev</text>
       <text x="46" y="1342">—</text>
       <text x="46" y="1360" font-size="11" fill="#A14A3B">☆☆☆☆☆☆☆☆☆☆</text>
-      <text x="46" y="1378" font-size="10" fill="#5A5348">Python  ·  ★0  ·  1 day ago</text>
+      <text x="46" y="1378" font-size="10" fill="#5A5348">Python  ·  ★0  ·  23 hours ago</text>
       
       <rect x="435" y="1302" width="385" height="88" fill="none" stroke="#3A3228" stroke-width="1.5"/>
       <text x="451" y="1324" font-weight="bold" font-size="13">dfa-base</text>
@@ -252,7 +252,7 @@
       <text x="451" y="1424" font-weight="bold" font-size="13">botbot</text>
       <text x="451" y="1442">—</text>
       <text x="451" y="1460" font-size="11" fill="#A14A3B">☆☆☆☆☆☆☆☆☆☆</text>
-      <text x="451" y="1478" font-size="10" fill="#5A5348">Python  ·  ★0  ·  2 months ago</text>
+      <text x="451" y="1478" font-size="10" fill="#5A5348">Python  ·  ★0  ·  3 months ago</text>
       
     
 
@@ -269,7 +269,7 @@
     <text x="200" y="1652">main</text>
     <text x="46" y="1670" font-weight="bold">Last Commit</text>
     <text x="46" y="1686">—</text>
-    <text x="46" y="1706" font-size="10" fill="#5A5348">1 day ago  ·  —</text>
+    <text x="46" y="1706" font-size="10" fill="#5A5348">23 hours ago  ·  —</text>
 
     <rect x="435" y="1570" width="385" height="150" fill="none" stroke="#3A3228" stroke-width="1.5"/>
     <text x="451" y="1592" font-weight="bold" font-size="13">RECENT INTELLIGENCE</text>
@@ -366,7 +366,7 @@
 
     <rect x="160" y="2208" width="160" height="40" fill="none" stroke="#3A3228" stroke-width="0.75"/>
     <text x="168" y="2224" font-size="9" font-weight="bold">LAST UPDATED</text>
-    <text x="168" y="2238" font-size="9">2026-07-29 08:31 UTC</text>
+    <text x="168" y="2238" font-size="9">2026-07-30 08:16 UTC</text>
 
     <rect x="330" y="2208" width="100" height="40" fill="none" stroke="#3A3228" stroke-width="0.75"/>
     <text x="338" y="2224" font-size="9" font-weight="bold">REVISION</text>
