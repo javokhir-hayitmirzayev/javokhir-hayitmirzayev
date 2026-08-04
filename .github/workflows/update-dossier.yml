@@ -25,14 +25,19 @@ jobs:
 
       - name: Generate live dossier
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The default GITHUB_TOKEN is scoped to this repo only, so it can't see
+          # commits/contributions anywhere else. Create a classic PAT with
+          # `repo` + `read:user` scopes and store it as the DOSSIER_PAT secret
+          # to get real all-time (incl. private) contribution counts. Falls
+          # back to the repo-scoped token (partial stats) if unset.
+          GITHUB_TOKEN: ${{ secrets.DOSSIER_PAT || secrets.GITHUB_TOKEN }}
         run: python scripts/generate_resume.py
 
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/javohir_casefile_live.svg
+          git add assets/javohir_casefile_live.svg assets/javohir_casefile_live_dark.svg
           if git diff --staged --quiet; then
             echo "No dossier changes"
           else

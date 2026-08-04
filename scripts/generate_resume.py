@@ -26,6 +26,32 @@ SCRIPTS = Path(__file__).resolve().parent
 CONFIG_PATH = SCRIPTS / "config.yaml"
 TEMPLATE_DIR = SCRIPTS / "templates"
 OUTPUT_PATH = ROOT / "assets" / "javohir_casefile_live.svg"
+OUTPUT_PATH_DARK = ROOT / "assets" / "javohir_casefile_live_dark.svg"
+
+# Fixed sepia duotone for the mugshot — a printed photo insert keeps its own tone
+# regardless of the surrounding page theme, so it's generated once and reused by
+# both the light and dark renders.
+MUGSHOT_INK = "#241C12"
+MUGSHOT_PAPER = "#E4D3A8"
+
+# Case-file color language: warm paper + dark ink in light mode, the same
+# document under a desk lamp at night in dark mode. Template reads these as C.*.
+PALETTES = {
+    "light": {
+        "bg": "#F3E4C4",
+        "ink": "#2A2116",
+        "ink_soft": "#6B5D45",
+        "accent": "#A14A3B",
+        "tile": "#E9DCBB",
+    },
+    "dark": {
+        "bg": "#181410",
+        "ink": "#EDE0C4",
+        "ink_soft": "#B3A280",
+        "accent": "#E2765C",
+        "tile": "#241E17",
+    },
+}
 
 API = "https://api.github.com"
 GRAPHQL = f"{API}/graphql"
@@ -330,16 +356,26 @@ def compute_streaks(days: list[dict[str, Any]]) -> tuple[int, int]:
 # Avatar
 # ---------------------------------------------------------------------------
 
-def build_mugshot(avatar_url: str, token: str | None) -> str:
-    """Download avatar, convert to grayscale JPEG, return data URI."""
-    raw = http_get_bytes(avatar_url, token)
+def fetch_avatar_bytes(avatar_url: str, token: str | None) -> bytes:
+    return http_get_bytes(avatar_url, token)
+
+
+def build_mugshot(raw: bytes, ink: str, paper: str) -> str:
+    """Duotone the avatar to a fixed sepia palette, return a data URI.
+
+    Flat grayscale turns illustrated avatars (icons, characters) into a muddy blob, so
+    instead we colorize by luminance into an ink/paper pair — reads as an aged
+    case-file photograph regardless of the source image's own colors. The photo keeps
+    this fixed tone in both light and dark renders, like a printed insert.
+    """
     img = Image.open(BytesIO(raw)).convert("RGB")
     img = ImageOps.fit(img, (280, 360), method=Image.Resampling.LANCZOS)
-    img = ImageOps.grayscale(img).convert("RGB")
-    img = ImageEnhance.Contrast(img).enhance(1.15)
-    img = ImageEnhance.Brightness(img).enhance(0.95)
+    gray = ImageOps.grayscale(img)
+    gray = ImageOps.autocontrast(gray, cutoff=1)
+    gray = ImageEnhance.Contrast(gray).enhance(1.2)
+    duo = ImageOps.colorize(gray, black=ink, white=paper)
     buf = BytesIO()
-    img.save(buf, format="JPEG", quality=82)
+    duo.save(buf, format="JPEG", quality=85)
     b64 = base64.b64encode(buf.getvalue()).decode("ascii")
     return f"data:image/jpeg;base64,{b64}"
 
@@ -485,13 +521,13 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
     else:
         print("→ No GITHUB_TOKEN — using REST-only (PARTIAL CLEARANCE)")
 
-    print("→ Building mugshot …")
+    print("→ Fetching avatar …")
     avatar_url = user.get("avatar_url") or f"https://github.com/{username}.png"
     try:
-        mugshot = build_mugshot(f"{avatar_url}&s=400" if "?" in avatar_url else f"{avatar_url}?s=400", token)
+        avatar_raw = fetch_avatar_bytes(f"{avatar_url}&s=400" if "?" in avatar_url else f"{avatar_url}?s=400", token)
     except Exception as e:
         print(f"  warn: avatar failed ({e}), using placeholder", file=sys.stderr)
-        mugshot = ""
+        avatar_raw = None
 
     print("→ Analyzing languages …")
     languages = analyze_languages(repos, username, token, config.get("language_bar_count", 6))
@@ -500,7 +536,6 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
     frameworks = detect_frameworks(repos, username, config, token)
 
     stars = sum(int(r.get("stargazers_count") or 0) for r in repos)
-    forks = sum(int(r.get("forks_count") or 0) for r in repos)
 
     # High value assets
     ranked = sorted(
@@ -553,9 +588,6 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
     org_names = ", ".join(o.get("login", "") for o in orgs) or "NONE"
     subject = config.get("subject") or {}
 
-    primary_language = languages[0]["name"] if languages else "—"
-    most_active = active_repo.get("name") if active_repo else "—"
-
     intel_n = int(config.get("recent_intelligence_count", 8))
     intelligence = []
     seen = set()
@@ -578,12 +610,29 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
     for lang in languages:
         lang["name_esc"] = xml_escape(lang["name"])
 
-    layout = compute_layout(len(languages), len(assets))
+    summary_lines = [xml_escape(line) for line in (config.get("summary") or [])]
+
+    layout = compute_layout(len(languages), len(assets), len(summary_lines))
     for i, a in enumerate(assets):
         col = i % 2
         row = i // 2
         a["x"] = 30 if col == 0 else 435
         a["y"] = layout["assets_box"] + row * 100
+
+    mugshot = ""
+    if avatar_raw:
+        mugshot = build_mugshot(avatar_raw, MUGSHOT_INK, MUGSHOT_PAPER)
+
+    stats = [
+        {"label": "Repos", "value": fmt_int(user.get("public_repos"))},
+        {"label": "Followers", "value": fmt_int(user.get("followers"))},
+        {"label": "Following", "value": fmt_int(user.get("following"))},
+        {"label": "Stars", "value": fmt_int(stars)},
+        {"label": "Commits", "value": fmt_int(gql.get("commits"))},
+        {"label": "Pull Reqs", "value": fmt_int(gql.get("pull_requests"))},
+        {"label": "Issues", "value": fmt_int(gql.get("issues"))},
+        {"label": "Streak", "value": f"{fmt_int(gql.get('current_streak'))}/{fmt_int(gql.get('longest_streak'))}"},
+    ]
 
     ctx = {
         "L": layout,
@@ -597,32 +646,18 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
         "classification": xml_escape(subject.get("classification", "")),
         "status": xml_escape(subject.get("status", "ACTIVE")),
         "threat_level": xml_escape(subject.get("threat_level", "HIGH")),
-        "clearance": xml_escape(subject.get("clearance", "FULLSTACK ENGINEER")),
         "location": xml_escape(user.get("location") or subject.get("location_fallback") or "—"),
         "phone": xml_escape(subject.get("phone", "—")),
-        "email": xml_escape(truncate(subject.get("email", "—"), 36)),
+        "email": xml_escape(truncate(subject.get("email", "—"), 34)),
         "linkedin": xml_escape(truncate(subject.get("linkedin", "—"), 34)),
-        "website": xml_escape(truncate(user.get("blog") or "—", 28)) if user.get("blog") else "—",
-        "bio": xml_escape(truncate(user.get("bio"), 80)),
+        "website": xml_escape(truncate(user.get("blog") or "—", 34)) if user.get("blog") else "—",
         "github_since": github_since,
-        "followers": user.get("followers", 0),
-        "following": user.get("following", 0),
-        "public_repos": user.get("public_repos", 0),
-        "orgs": xml_escape(org_names),
-        "last_seen": relative_time(last_seen_iso),
+        "years_active": years_active,
+        "orgs": xml_escape(truncate(org_names, 34)),
         "mugshot": mugshot,
         "has_mugshot": bool(mugshot),
-        "summary": [xml_escape(line) for line in (config.get("summary") or [])],
-        # Mission record
-        "ops_completed": fmt_int(user.get("public_repos")),
-        "deployments": fmt_int(gql.get("commits")),
-        "associates": fmt_int(user.get("followers")),
-        "intel_sources": fmt_int(user.get("following")),
-        "pull_requests": fmt_int(gql.get("pull_requests")),
-        "cases_closed": fmt_int(gql.get("issues")),
-        "stars_earned": fmt_int(stars),
-        "forked_ops": fmt_int(forks),
-        "latest_deployment": relative_time(last_seen_iso),
+        "summary": summary_lines,
+        "stats": stats,
         "mission_status": xml_escape(subject.get("status", "ACTIVE")),
         # Arsenal
         "languages": languages,
@@ -653,12 +688,6 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
         "field_notes": config.get("field_notes") or {},
         "known_for": [xml_escape(x) for x in ((config.get("field_notes") or {}).get("known_for") or [])],
         "field_status": xml_escape((config.get("field_notes") or {}).get("current_status", "MISSION ACTIVE")),
-        # Operational metrics
-        "primary_language": xml_escape(primary_language),
-        "most_active_repo": xml_escape(str(most_active)),
-        "years_active": years_active,
-        "current_streak": fmt_int(gql.get("current_streak")),
-        "longest_streak": fmt_int(gql.get("longest_streak")),
         "partial": bool(gql.get("partial")),
         "clearance_note": clearance_note,
         "generated_at": now.strftime("%Y-%m-%d %H:%M UTC"),
@@ -667,14 +696,28 @@ def build_context(config: dict[str, Any], token: str | None) -> dict[str, Any]:
     return ctx
 
 
-def compute_layout(n_languages: int, n_assets: int) -> dict[str, int]:
-    """Precompute vertical positions so the SVG canvas fits all sections."""
+def compute_layout(n_languages: int, n_assets: int, n_summary_lines: int) -> dict[str, int]:
+    """Precompute vertical positions so the SVG canvas fits all sections.
+
+    Sections stack top to bottom, each section leaving a fixed 20px gap before the
+    next section's rule. The header and the mugshot/profile/stats row are a fixed
+    height; everything below scales with actual content so the canvas never carries
+    dead space.
+    """
+    row_y = 160
+    row_h = 192  # mugshot + profile fields + stat tiles, all in one row
+
+    summary_rule = row_y + row_h + 14
+    summary_box = summary_rule + 10
+    summary_lines = max(n_summary_lines, 1)
+    summary_h = 24 + summary_lines * 16 + 10
+
+    arsenal_rule = summary_box + summary_h + 20
+    arsenal_title = arsenal_rule + 26
+    arsenal_rule2 = arsenal_rule + 36
+    arsenal_box = arsenal_rule + 52
     lang_rows = max(n_languages, 1)
     arsenal_h = 28 + lang_rows * 28
-    arsenal_rule = 614
-    arsenal_title = 640
-    arsenal_rule2 = 650
-    arsenal_box = 666
 
     fw_rule = arsenal_box + arsenal_h + 20
     fw_title = fw_rule + 26
@@ -689,26 +732,28 @@ def compute_layout(n_languages: int, n_assets: int) -> dict[str, int]:
     asset_rows = max((n_assets + 1) // 2, 1) if n_assets else 1
     assets_block_h = asset_rows * 100 if n_assets else 56
 
-    ops_rule = assets_box + assets_block_h + 16
+    ops_rule = assets_box + assets_block_h + 20
     ops_title = ops_rule + 26
     ops_rule2 = ops_rule + 36
     ops_box = ops_rule + 52
+    ops_box_h = 150
 
-    threat_rule = ops_box + 170
+    threat_rule = ops_box + ops_box_h + 20
     threat_title = threat_rule + 26
     threat_rule2 = threat_rule + 36
     threat_box = threat_rule + 52
+    threat_box_h = 200
 
-    metrics_rule = threat_box + 220
-    metrics_title = metrics_rule + 26
-    metrics_rule2 = metrics_rule + 36
-    metrics_box = metrics_rule + 52
-
-    footer_rule = metrics_box + 108
-    footer_meta = footer_rule + 36
-    canvas_height = footer_meta + 80
+    footer_rule = threat_box + threat_box_h + 24
+    footer_meta = footer_rule + 22
+    canvas_height = footer_meta + 56
 
     return {
+        "row_y": row_y,
+        "row_h": row_h,
+        "summary_rule": summary_rule,
+        "summary_box": summary_box,
+        "summary_h": summary_h,
         "arsenal_rule": arsenal_rule,
         "arsenal_title": arsenal_title,
         "arsenal_rule2": arsenal_rule2,
@@ -731,17 +776,13 @@ def compute_layout(n_languages: int, n_assets: int) -> dict[str, int]:
         "threat_title": threat_title,
         "threat_rule2": threat_rule2,
         "threat_box": threat_box,
-        "metrics_rule": metrics_rule,
-        "metrics_title": metrics_title,
-        "metrics_rule2": metrics_rule2,
-        "metrics_box": metrics_box,
         "footer_rule": footer_rule,
         "footer_meta": footer_meta,
         "canvas_height": canvas_height,
     }
 
 
-def render(ctx: dict[str, Any]) -> str:
+def render(ctx: dict[str, Any], theme: str) -> str:
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
         autoescape=select_autoescape(enabled_extensions=()),
@@ -751,7 +792,7 @@ def render(ctx: dict[str, Any]) -> str:
         item["width"] = max(4, int(round(170 * score / 100)))
         item["label_esc"] = xml_escape(item.get("label", ""))
     template = env.get_template("dossier.svg.j2")
-    return template.render(**ctx)
+    return template.render(**ctx, C=PALETTES[theme])
 
 
 def main() -> int:
@@ -760,17 +801,18 @@ def main() -> int:
         config = yaml.safe_load(f)
 
     ctx = build_context(config, token)
-    svg = render(ctx)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(svg, encoding="utf-8")
+    OUTPUT_PATH.write_text(render(ctx, "light"), encoding="utf-8")
+    OUTPUT_PATH_DARK.write_text(render(ctx, "dark"), encoding="utf-8")
 
     print()
     print(f"✓ Wrote {OUTPUT_PATH.relative_to(ROOT)}")
+    print(f"✓ Wrote {OUTPUT_PATH_DARK.relative_to(ROOT)}")
     print(f"  Subject     {ctx['display_name']} (@{ctx['codename']})")
-    print(f"  Operations  {ctx['ops_completed']} repos")
-    print(f"  Associates  {ctx['associates']} followers")
-    print(f"  Stars       {ctx['stars_earned']}")
-    print(f"  Deployments {ctx['deployments']}")
+    print(f"  Repos       {ctx['stats'][0]['value']}")
+    print(f"  Followers   {ctx['stats'][1]['value']}")
+    print(f"  Stars       {ctx['stats'][3]['value']}")
+    print(f"  Commits     {ctx['stats'][4]['value']}")
     print(f"  Clearance   {ctx['clearance_note']}")
     print(f"  Generated   {ctx['generated_at']}")
     return 0
