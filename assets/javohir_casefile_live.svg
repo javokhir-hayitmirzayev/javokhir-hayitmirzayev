@@ -271,7 +271,7 @@
       <text x="451" y="1220" font-weight="bold" font-size="13">omarchy_setup</text>
       <text x="451" y="1238">—</text>
       <text x="451" y="1256" font-size="11" fill="#A14A3B">☆☆☆☆☆☆☆☆☆☆</text>
-      <text x="451" y="1274" font-size="10" fill="#6B5D45">QML  ·  ★0  ·  6 days ago</text>
+      <text x="451" y="1274" font-size="10" fill="#6B5D45">QML  ·  ★0  ·  7 days ago</text>
       
       <rect x="30" y="1298" width="385" height="88" fill="none" stroke="#2A2116" stroke-width="1.5"/>
       <text x="46" y="1320" font-weight="bold" font-size="13">dfa-base</text>
@@ -371,7 +371,7 @@
 
     <!-- FOOTER -->
     <rect x="30" y="1916" width="790" height="2" fill="#2A2116" opacity="0.6"/>
-    <text x="30" y="1938" font-size="10" fill="#6B5D45">SOURCE GitHub API · UPDATED 2026-10-23 10:54 UTC · REV v2.0 · VERIFICATION VERIFIED · STATUS ACTIVE</text>
+    <text x="30" y="1938" font-size="10" fill="#6B5D45">SOURCE GitHub API · UPDATED 2026-10-24 10:08 UTC · REV v2.0 · VERIFICATION VERIFIED · STATUS ACTIVE</text>
     <text x="30" y="1956" font-size="8" fill="#6B5D45">PAGE 1 OF 1  ·  DOCUMENT CF-0609-A  ·  ARCHIVE COPY</text>
     <text x="820" y="1956" font-size="8" fill="#6B5D45" text-anchor="end">SECURITY LEVEL IV  ·  CONFIDENTIAL</text>
   </g>
